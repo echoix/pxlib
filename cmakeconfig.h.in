@@ -57,10 +57,6 @@
 /* Define to the version of this package. */
 #cmakedefine PACKAGE_VERSION
 
-/* Define to 1 if you have the ANSI C header files. */
-/* Note: not use in the code */
-#cmakedefine STDC_HEADERS 1
-
 /* Version number of package */
 #define VERSION "@CPACK_PACKAGE_VERSION@"
 

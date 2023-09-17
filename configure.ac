@@ -1,20 +1,20 @@
 dnl Process this file with autoconf to produce a configure script.
-AC_PREREQ(2.52)
-AC_INIT([pxlib], [0.6.8], http://sourceforge.net/projects/pxlib)
+AC_PREREQ([2.71])
+AC_INIT([pxlib],[0.6.9],[https://github.com/steinm/pxlib])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/paradox.c])
 AM_INIT_AUTOMAKE()
 
-AM_CONFIG_HEADER(config.h)
+AC_CONFIG_HEADERS(config.h)
 AM_MAINTAINER_MODE
 
 dnl Checks for programs.
-AC_PROG_LIBTOOL
+LT_INIT
 AC_PROG_CC
 AC_PROG_CPP
 AC_PROG_INSTALL
 AC_PROG_LN_S
-AC_PROG_INTLTOOL
+IT_PROG_INTLTOOL
 
 dnl the following sets the soname version
 PXLIB_MAJOR_VERSION=0
@@ -47,7 +47,7 @@ GETTEXT_PACKAGE=pxlib
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE, "$GETTEXT_PACKAGE", GETTEXT_PACKAGE)
 
-AC_PROG_LIBTOOL
+LT_INIT
 
 dnl Checks for typedefs, structures, and compiler characteristics.
 AC_C_CONST
@@ -56,7 +56,6 @@ AC_STRUCT_TM
 
 dnl Checks for header files.
 AC_HEADER_DIRENT
-AC_HEADER_STDC
 AC_CHECK_HEADERS(iconv.h fcntl.h unistd.h ctype.h dirent.h errno.h malloc.h)
 AC_CHECK_HEADERS(stdbool.h stdarg.h sys/stat.h sys/types.h time.h)
 AC_CHECK_HEADERS(ieeefp.h nan.h math.h fp_class.h float.h)
@@ -186,7 +185,7 @@ dnl AC_DEFINE_UNQUOTED(PXLIB_MAJOR_VERSION, "$PXLIB_MAJOR_VERSION", PXLIB_MAJOR_
 dnl AC_DEFINE_UNQUOTED(PXLIB_MINOR_VERSION, "$PXLIB_MINOR_VERSION", PXLIB_MINOR_VERSION)
 dnl AC_DEFINE_UNQUOTED(PXLIB_MICRO_VERSION, "$PXLIB_MICRO_VERSION", PXLIB_MICRO_VERSION)
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 pxlib.spec
 pxlib.pc
@@ -198,6 +197,7 @@ include/pxversion.h
 include/paradox.h
 include/paradox-gsf.h
 ])
+AC_OUTPUT
 
 echo
 echo "Configuration:"
