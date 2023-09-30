@@ -8,6 +8,12 @@
 #include "paradox-mp.h"
 #include "px_error.h"
 
+#ifdef _MSC_VER
+  #ifndef strdup
+    #define strdup _strdup
+  #endif
+#endif  /* _MSC_VER */
+
 #define MAXMEM 10000
 
 struct mem {
@@ -42,7 +48,7 @@ PX_mp_malloc(pxdoc_t *p, size_t size, const char *caller) {
 	memlist[i].size = (int)size;
 	summem += (int)size;
 	peakmem = (summem > peakmem) ? summem : peakmem;
-	memlist[i].caller = _strdup(caller);
+	memlist[i].caller = strdup(caller);
 	return(a);
 }
 
@@ -58,7 +64,7 @@ PX_mp_realloc(pxdoc_t *p, void *mem, size_t size, const char *caller) {
 			summem += (int)size;
 			memlist[i].size = (int)size;
 			free(memlist[i].caller);
-			memlist[i].caller = _strdup(caller);
+			memlist[i].caller = strdup(caller);
 		}
 	}
 	if(i == MAXMEM) {
