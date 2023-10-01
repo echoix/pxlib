@@ -3,7 +3,7 @@ AC_PREREQ([2.71])
 AC_INIT([pxlib],[0.6.9],[https://github.com/steinm/pxlib])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/paradox.c])
-AM_INIT_AUTOMAKE()
+AM_INIT_AUTOMAKE
 
 AC_CONFIG_HEADERS(config.h)
 AM_MAINTAINER_MODE
