@@ -3844,6 +3844,7 @@ PXLIB_API void PXLIB_CALL
 PX_put_data_alpha(pxdoc_t *pxdoc, char *data, int len, char *value) {
 	char *obuf = NULL;
 	size_t olen;
+	int res;
 
 	memset(data, 0, len);
 	if((value == NULL) || (value[0] == '\0')) {
@@ -3853,7 +3854,7 @@ PX_put_data_alpha(pxdoc_t *pxdoc, char *data, int len, char *value) {
 	if(pxdoc->targetencoding != NULL) {
 #if PX_USE_RECODE
 		int oallocated = 0;
-		int res = recode_buffer_to_buffer(pxdoc->in_recode_request, value, strlen(value), &obuf, &olen, &oallocated);
+		res = recode_buffer_to_buffer(pxdoc->in_recode_request, value, strlen(value), &obuf, &olen, &oallocated);
 #else
 #if PX_USE_ICONV
 		size_t ilen = strlen(value);
