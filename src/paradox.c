@@ -2582,9 +2582,9 @@ PX_delete(pxdoc_t *pxdoc) {
 		recode_delete_request(pxdoc->in_recode_request);
 #else
 #if PX_USE_ICONV
-	if((int) pxdoc->out_iconvcd > 0)
+	if(pxdoc->out_iconvcd != (iconv_t) -1)
 		iconv_close(pxdoc->out_iconvcd);
-	if((int) pxdoc->in_iconvcd > 0)
+	if(pxdoc->in_iconvcd != (iconv_t) -1)
 		iconv_close(pxdoc->in_iconvcd);
 #endif
 #endif
@@ -3845,7 +3845,7 @@ PX_put_data_alpha(pxdoc_t *pxdoc, char *data, int len, char *value) {
 	char *obuf = NULL;
 	size_t olen;
 	int res;
-
+	
 	memset(data, 0, len);
 	if((value == NULL) || (value[0] == '\0')) {
 		return;
