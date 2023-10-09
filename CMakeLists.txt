@@ -57,6 +57,32 @@ else()
     set(PX_HAVE_GSF 0)
 endif()
 
+set(SOURCES
+    src/gregor.c
+    src/paradox.c
+    src/px_crypt.c
+    src/px_encode.c
+    src/px_error.c
+    src/px_head.c
+    src/px_io.c
+    src/px_memory.c
+    src/px_memprof.c
+    src/px_misc.c
+    src/fileformat.h
+    src/px_crypt.h
+    src/px_encode.h
+    src/px_error.h
+    src/px_head.h
+    src/px_intern.h
+    src/px_io.h
+    src/px_memory.h
+    src/px_misc.h
+    src/sdncal.h
+    include/paradox-gsf.h
+    include/paradox.h
+    include/paradox-mp.h
+    include/pxversion.h
+)
 
 add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
 add_definitions(-DPXLIB_EXPORTS)
@@ -83,38 +109,12 @@ set(CPACK_GENERATOR "TGZ")
 set(CPACK_SOURCE_GENERATOR "TGZ")
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/cmakeconfig.h.in config.h)
-configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/pxversion.h.in pxversion.h)
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/pxversion.h.in include/pxversion.h)
 
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/paradox.h.in include/paradox.h)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/include/paradox-gsf.h.in include/paradox-gsf.h)
 
 
-set(SOURCES
-    src/gregor.c
-    src/paradox.c
-    src/px_crypt.c
-    src/px_encode.c
-    src/px_error.c
-    src/px_head.c
-    src/px_io.c
-    src/px_memory.c
-    src/px_memprof.c
-    src/px_misc.c
-    src/fileformat.h
-    src/px_crypt.h
-    src/px_encode.h
-    src/px_error.h
-    src/px_head.h
-    src/px_intern.h
-    src/px_io.h
-    src/px_memory.h
-    src/px_misc.h
-    src/sdncal.h
-    include/paradox-gsf.h
-    include/paradox.h
-    include/paradox-mp.h
-    pxversion.h
-)
 
 add_library(pxlib SHARED ${SOURCES})
 
