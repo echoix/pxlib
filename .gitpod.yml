@@ -6,6 +6,6 @@
 
 tasks:
   - init: cmake .
-  - before: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" && sudo apt update && sudo apt install -y libgsf-1-dev intltool recode librecode-dev docbook-to-man info
+  - before: sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)" && sudo apt update && sudo apt install -y libgsf-1-dev libgsf-bin intltool recode librecode-dev docbook-to-man info
 
 
