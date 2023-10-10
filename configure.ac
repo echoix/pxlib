@@ -1,6 +1,6 @@
 dnl Process this file with autoconf to produce a configure script.
 AC_PREREQ([2.71])
-AC_INIT([pxlib],[0.6.9],[https://github.com/steinm/pxlib])
+AC_INIT([pxlib],[0.6.9],[https://pxlib.sourceforge.net])
 AC_CONFIG_MACRO_DIR([m4])
 AC_CONFIG_SRCDIR([src/paradox.c])
 AM_INIT_AUTOMAKE
