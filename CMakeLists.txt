@@ -1,8 +1,22 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.12...3.27)
 
-project(pxlib)
+project(pxlib 
+    VERSION 0.6.8
+    LANGUAGES C 
+    DESCRIPTION "Library to read and write Paradox files"
+    HOMEPAGE_URL "https://pxlib.sourceforge.net")
+
+# Source file extensions must be explicit. 
+# In CMake 3.19 and below, cmake would implicitly append known extensions to source files if they can't be found.
+# In CMake 3.20+, behavior is to not append known extensions and require them to be explicit.
+if(POLICY CMP0115) 
+    cmake_policy(SET CMP0115 NEW)
+endif()
+
+include(FeatureSummary)
 
 option(ENABLE_GSF "Build with gsf support" OFF)
+
 
 if(CMAKE_COMPILER_IS_GNUCC)
     add_definitions(
