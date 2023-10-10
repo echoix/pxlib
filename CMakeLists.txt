@@ -60,6 +60,8 @@ check_function_exists(strdup HAVE_STRDUP)
 include(TestBigEndian)
 test_big_endian(WORDS_BIGENDIAN)
 
+find_package(Iconv)
+
 if(HAVE_ICONV_H)
     set(PX_HAVE_ICONV 1)
     set(PX_HAVE_RECODE 0)
@@ -143,6 +145,12 @@ target_include_directories(pxlib
     PRIVATE ${CMAKE_SOURCE_DIR}/include ${CMAKE_BINARY_DIR}
     PUBLIC ${CMAKE_BINARY_DIR}/include
 )
+
+
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    feature_summary(WHAT ALL)
+    feature_summary(FILENAME ${CMAKE_CURRENT_BINARY_DIR}/features.log WHAT ALL)
+endif()
 
 
 include(GNUInstallDirs)
