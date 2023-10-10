@@ -1,0 +1,25 @@
+{
+    "cSpell.words": [
+        "blockno",
+        "cmakedefine",
+        "MAXMEM",
+        "memlist",
+        "peakmem",
+        "PXLIB",
+        "summem"
+    ],
+    "cmake.configureOnOpen": true,
+    "cmake.setBuildTypeOnMultiConfig": true,
+    "cmake.useProjectStatusView": false,
+    "C_Cpp.default.compilerPath": "/usr/bin/gcc",
+    "files.associations": {
+        "*.embeddedhtml": "html",
+        "*.cmake": "cmake",
+        "*.dox": "doxygen",
+        "new1": "plaintext",
+        "errno.h": "c",
+        "px_intern.h": "c"
+    },
+    "cmake.useCMakePresets": "always",
+    "cmake.allowCommentsInPresetsFile": true
+}
