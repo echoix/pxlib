@@ -16,24 +16,31 @@ endif()
 
 # Check system for includes
 include(CheckIncludeFile)
+include(CheckIncludeFiles)
 check_include_file("fcntl.h"           HAVE_FCNTL_H)
+check_include_file("errno.h"           HAVE_ERRNO_H)
 check_include_file("iconv.h"           HAVE_ICONV_H)
-check_include_file("locale.h"          HAVE_LOCALE_H)
-check_include_file("unistd.h"          HAVE_UNISTD_H)
 check_include_file("inttypes.h"        HAVE_INTTYPES_H)
+check_include_file("locale.h"          HAVE_LOCALE_H)
+check_include_file("math.h"            HAVE_MATH_H)
 check_include_file("stdarg.h"          HAVE_STDARG_H)
+check_include_file("stdbool.h"         HAVE_STDBOOL_H)
 check_include_file("stddef.h"          HAVE_STDDEF_H)
 check_include_file("stdint.h"          HAVE_STDINT_H)
 check_include_file("stdlib.h"          HAVE_STDLIB_H)
-check_include_file("stdbool.h"         HAVE_STDBOOL_H)
 check_include_file("string.h"          HAVE_STRING_H)
 check_include_file("strings.h"         HAVE_STRINGS_H)
 check_include_file("sys/time.h"        HAVE_SYS_TIME_H)
 check_include_file("sys/types.h"       HAVE_SYS_TYPES_H)
+check_include_file("unistd.h"          HAVE_UNISTD_H)
 check_include_file("gsf/gsf-input-stdio.h" HAVE_GSF_GSFINPUTSTDIO_H)
+
+check_include_files("stdbool.h;stdio.h;recode.h" HAVE_RECODE LANGUAGE C)
 
 # Functions
 include(CheckFunctionExists)
+## Checks for library functions.
+check_function_exists(strdup HAVE_STRDUP)
 
 # Endianess
 include(TestBigEndian)

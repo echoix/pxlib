@@ -3,14 +3,26 @@
 /* Directory for data */
 #define DATAFILE_DIR "@CMAKE_INSTALL_PREFIX@/share/@CPACK_PACKAGE_NAME@"
 
+/* Define to 1 if you have the <errno.h> header file. */
+#cmakedefine HAVE_ERRNO_H 1
+
 /* Define to 1 if you have the <fcntl.h> header file. */
 #cmakedefine HAVE_FCNTL_H 1
 
-/* Define if you have the iconv() function. */
+/* Define to 1 if we can use gsf libraries */
+#cmakedefine HAVE_GSF 1
+
+/* Define to 1 if you have the <iconv.h> header file. */
 #cmakedefine HAVE_ICONV 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #cmakedefine HAVE_INTTYPES_H 1
+
+/* Define to 1 if you have the <math.h> header file. */
+#cmakedefine HAVE_MATH_H 1
+
+/* Define if you have the recode library. */
+#cmakedefine HAVE_RECODE 1
 
 /* Define to 1 if you have the <stdarg.h> header file. */
 #cmakedefine HAVE_STDARG_H 1
