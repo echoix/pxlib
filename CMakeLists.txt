@@ -16,6 +16,12 @@ endif()
 include(FeatureSummary)
 
 option(ENABLE_GSF "Build with gsf support" OFF)
+if(ENABLE_GSF)
+    find_package(PkgConfig REQUIRED QUIET)
+    if (PkgConfig_FOUND)
+        pkg_check_modules(GSF REQUIRED IMPORTED_TARGET libgsf-1)
+    endif ()
+endif()
 
 
 if(CMAKE_COMPILER_IS_GNUCC)
